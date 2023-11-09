@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "electro-shop"
+version = "0.1.0"
+description = ""
+authors = ["glebokhlopkov <glebka_90@mail.ru>"]
+readme = "README.md"
+packages = [{include = "electro_shop"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
