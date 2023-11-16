@@ -32,8 +32,8 @@
       "product_image": "",
       "product_category": 1,
       "product_price": 1,
-      "product_datetime_create": null,
-      "product_datetime_change": null
+      "product_datetime_create": "2023-01-01",
+      "product_datetime_change": "2023-01-01"
     }
   },
   {
@@ -45,8 +45,8 @@
       "product_image": "",
       "product_category": 1,
       "product_price": 2,
-      "product_datetime_create": null,
-      "product_datetime_change": null
+      "product_datetime_create": "2023-02-02",
+      "product_datetime_change": "2023-02-02"
     }
   },
   {
@@ -58,8 +58,8 @@
       "product_image": "",
       "product_category": 2,
       "product_price": 3,
-      "product_datetime_create": null,
-      "product_datetime_change": null
+      "product_datetime_create": "2023-03-03",
+      "product_datetime_change": "2023-03-03"
     }
   },
   {
@@ -71,8 +71,8 @@
       "product_image": "",
       "product_category": 2,
       "product_price": 4,
-      "product_datetime_create": null,
-      "product_datetime_change": null
+      "product_datetime_create": "2023-04-04",
+      "product_datetime_change": "2023-04-04"
     }
   },
   {
@@ -84,8 +84,8 @@
       "product_image": "",
       "product_category": 3,
       "product_price": 5,
-      "product_datetime_create": null,
-      "product_datetime_change": null
+      "product_datetime_create": "2023-05-05",
+      "product_datetime_change": "2023-05-05"
     }
   },
   {
@@ -97,8 +97,8 @@
       "product_image": "",
       "product_category": 3,
       "product_price": 6,
-      "product_datetime_create": null,
-      "product_datetime_change": null
+      "product_datetime_create": "2023-06-06",
+      "product_datetime_change": "2023-06-06"
     }
   }
 ]
