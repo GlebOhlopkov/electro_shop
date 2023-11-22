@@ -5,7 +5,11 @@ from catalog.models import Product
 
 def home(request):
     print(Product.objects.order_by('-product_datetime_change').all()[:5])
-    return render(request, 'catalog/home.html')
+    product_list = Product.objects.all()
+    context = {
+        'product_list': product_list
+    }
+    return render(request, 'catalog/home.html', context)
 
 
 def contacts(request):
