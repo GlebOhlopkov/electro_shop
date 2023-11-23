@@ -12,10 +12,10 @@ def home(request):
     return render(request, 'catalog/home.html', context)
 
 
-def product(request):
-    product_list = Product.objects.all()
+def product(request, pk):
+    product_info = Product.objects.filter(id=pk)
     context = {
-        'product_list': product_list,
+        'product_info': product_info,
         'title': 'Product',
     }
     return render(request, 'catalog/product.html', context)
