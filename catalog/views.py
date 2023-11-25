@@ -13,7 +13,7 @@ def home(request):
 
 
 def product(request, pk):
-    product_info = Product.objects.filter(id=pk)
+    product_info = Product.objects.get(id=pk)
     context = {
         'product_info': product_info,
         'title': 'Product',
