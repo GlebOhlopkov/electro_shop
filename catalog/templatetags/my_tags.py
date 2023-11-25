@@ -4,7 +4,14 @@ register = template.Library()
 
 
 @register.filter()
-def mymedia(photo_product):
+def photo_path(photo_product):
     if photo_product:
-        return f'/media/product/{photo_product}'
+        return f'/media/{photo_product}'
+    return f'#'
+
+
+@register.simple_tag()
+def image_path(photo_product):
+    if photo_product:
+        return f'/media/{photo_product}'
     return f'#'
