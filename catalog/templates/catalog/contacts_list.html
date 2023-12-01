@@ -19,13 +19,14 @@
 <br>
 <br>
 
+{% for contact in contacts_list %}
 <div class="container text-center">
     <div class="row col-4">
         <div class="col">
             Tel/Fax:
         </div>
         <div class="col">
-            +123456789
+            {{ contact.phone }}
         </div>
     </div>
 </div>
@@ -36,9 +37,10 @@
             E-mail:
         </div>
         <div class="col">
-            any_shop@mail.com
+            {{ contact.email }}
         </div>
     </div>
 </div>
+{% endfor %}
 
 {% endblock %}
