@@ -1,0 +1,16 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+
+{% block content_block %}
+
+<form method="post" class="row">
+    <div class="card mb-3">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">
+            Save
+        </button>
+    </div>
+</form>
+
+{% endblock %}

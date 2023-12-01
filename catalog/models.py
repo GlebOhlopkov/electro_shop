@@ -32,3 +32,15 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'product'
         verbose_name_plural = 'products'
+
+
+class Contacts(models.Model):
+    phone = models.CharField(max_length=30, verbose_name='phone')
+    email = models.CharField(max_length=100, verbose_name='email')
+
+    def __str__(self):
+        return f'phone: {self.phone}, email: {self.email}'
+
+    class Meta:
+        verbose_name = 'contact'
+        verbose_name_plural = 'contacts'
