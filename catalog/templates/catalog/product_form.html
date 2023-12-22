@@ -3,14 +3,18 @@
 
 {% block content_block %}
 
-<form method="post" class="row">
-    <div class="card mb-3">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-success">
-            Save
-        </button>
+<div class="row">
+    <div class="col-6">
+        <form method="post" class="row">
+            <div class="card mb-3">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">
+                    Save
+                </button>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 
 {% endblock %}
