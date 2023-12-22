@@ -2,10 +2,10 @@
 {% load my_tags %}
 
 {% block content_block %}
-
-<div class="row">
-    <div class="col-6">
-        <form method="post" class="row">
+<div class="col-12">
+    <form class="row" method="post">
+        <div class="col-6">
+            Product info
             <div class="card mb-3">
                 {% csrf_token %}
                 {{ form.as_p }}
@@ -13,8 +13,21 @@
                     Save
                 </button>
             </div>
-        </form>
-    </div>
+        </div>
+
+        <div class="col-3">
+            Product version
+            <div class="card mb-3">
+                {{ formset.management_form }}
+                {% for form in formset.forms %}
+                    {{ form.as_p }}
+                    {% if not forloop.last %}
+                        <hr>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </form>
 </div>
 
 {% endblock %}

@@ -34,6 +34,20 @@ class Product(models.Model):
         verbose_name_plural = 'products'
 
 
+class Version(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, **NULLABLE, verbose_name='product')
+    version_number = models.IntegerField(default=1, verbose_name='version_number')
+    version_name = models.CharField(max_length=50, verbose_name='version_name')
+    is_active = models.BooleanField(default=True, verbose_name='is_active')
+
+    def __str__(self):
+        return f'{self.version_number}: {self.version_name} ({self.product})'
+
+    class Meta:
+        verbose_name = 'version'
+        verbose_name_plural = 'versions'
+
+
 class Contacts(models.Model):
     phone = models.CharField(max_length=30, verbose_name='phone')
     email = models.CharField(max_length=100, verbose_name='email')
