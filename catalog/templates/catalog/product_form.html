@@ -5,7 +5,7 @@
 <div class="col-12">
     <form class="row" method="post">
         <div class="col-6">
-            Product info
+            <h3>Product info</h3>
             <div class="card mb-3">
                 {% csrf_token %}
                 {{ form.as_p }}
@@ -14,19 +14,20 @@
                 </button>
             </div>
         </div>
-
+        {% if view.object %}
         <div class="col-3">
-            Product version
+            <h3>Product version</h3>
             <div class="card mb-3">
                 {{ formset.management_form }}
                 {% for form in formset.forms %}
-                    {{ form.as_p }}
-                    {% if not forloop.last %}
-                        <hr>
-                    {% endif %}
+                {{ form.as_p }}
+                {% if not forloop.last %}
+                <hr>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
+        {% endif %}
     </form>
 </div>
 
