@@ -19,6 +19,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'blog:blog_list' %}">BLOG</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:profile' %}">Profile</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:password_recovery' %}">Password_Recovery</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:logout' %}">Logout</a>
+                    {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:login' %}">Login</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:register' %}">Register</a>
+                    {% endif %}
+                </li>
             </ul>
         </div>
     </div>

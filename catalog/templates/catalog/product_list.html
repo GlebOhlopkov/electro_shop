@@ -17,6 +17,8 @@
                     <p class="card-text">{{product.product_description|slice:50}}</p>
                     <p class="card-text"><small class="text-body-secondary">{{product.product_category}}</small></p>
                     <p class="card-text"><small class="text-body-secondary">{{product.product_price}} $</small></p>
+                    <p class="card-text"><small class="text-body-secondary">Created by:
+                        {{product.created_by|default:"Nobody"}} </small></p>
                     <a href="{% url 'catalog:product_view' pk=product.pk %}" class="btn btn-secondary" tabindex="-1"
                        role="button" aria-disabled="true">To product</a>
                     <a href="{% url 'catalog:product_update' pk=product.pk %}" class="btn btn-secondary" tabindex="-1"
