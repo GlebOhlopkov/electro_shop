@@ -23,9 +23,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'users:profile' %}">Profile</a>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'users:password_recovery' %}">Password_Recovery</a>
-                <li class="nav-item">
                     <a class="nav-link" href="{% url 'users:logout' %}">Logout</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:password_recovery' %}">Password_Recovery</a>
                     {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'users:login' %}">Login</a>
