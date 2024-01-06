@@ -37,7 +37,7 @@ class RegisterView(CreateView):
         new_user.save()
         token = default_token_generator.make_token(new_user)
         uid = urlsafe_base64_encode(force_bytes(new_user.pk))
-        activation_url = reverse_lazy('confirm_email', kwargs={'uidb64': uid, 'token': token})
+        activation_url = reverse_lazy('users:confirm_email', kwargs={'uidb64': uid, 'token': token})
         current_site = Site.objects.get_current().domain
         send_mail(
             subject='Thank you for registration! Need confirm your account',
@@ -45,7 +45,7 @@ class RegisterView(CreateView):
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[new_user.email]
         )
-        return redirect('confirm_register')
+        return redirect('users:confirm_register')
 
 
 class UserConfirmEmailView(View):
@@ -60,13 +60,13 @@ class UserConfirmEmailView(View):
             user.email_verify = True
             user.save()
             login(request, user)
-            return redirect('profile')
+            return redirect('users:profile')
         else:
-            return redirect('profile')
+            return redirect('users:profile')
 
 
 class EmailConfirmView(TemplateView):
-    template_name = 'system/registration/confirm_register.html'
+    template_name = 'users/confirm_register.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
