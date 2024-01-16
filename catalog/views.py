@@ -54,7 +54,7 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     def get_object(self, queryset=None):
         self.object = super().get_object(queryset)
         if self.object.created_by != self.request.user:
-            return Http404
+            raise Http404("Sorry, you don't owner of this product")
         return self.object
 
     def get_context_data(self, **kwargs):
