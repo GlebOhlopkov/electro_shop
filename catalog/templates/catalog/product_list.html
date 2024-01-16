@@ -21,8 +21,14 @@
                         {{product.created_by|default:"Nobody"}} </small></p>
                     <a href="{% url 'catalog:product_view' pk=product.pk %}" class="btn btn-secondary" tabindex="-1"
                        role="button" aria-disabled="true">To product</a>
+                    {% if perms.catalog.change_product %}
+                    <a href="{% url 'catalog:product_moder_update' pk=product.pk %}" class="btn btn-secondary"
+                       tabindex="-1"
+                       role="button" aria-disabled="true">Update info</a>
+                    {% else %}
                     <a href="{% url 'catalog:product_update' pk=product.pk %}" class="btn btn-secondary" tabindex="-1"
                        role="button" aria-disabled="true">Update info</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

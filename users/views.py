@@ -2,6 +2,7 @@ import random
 
 from django.conf import settings
 from django.contrib.auth import login
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView as BaseLoginView
 from django.contrib.auth.views import LogoutView as BaseLogoutView
 from django.contrib.auth.tokens import default_token_generator
@@ -74,7 +75,7 @@ class EmailConfirmView(TemplateView):
         return context
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     success_url = reverse_lazy('users:profile')
     form_class = UserForm
