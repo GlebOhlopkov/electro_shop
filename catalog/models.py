@@ -25,6 +25,7 @@ class Product(models.Model):
     product_image = models.ImageField(upload_to='product/', **NULLABLE, verbose_name='product_image')
     product_category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='product_category')
     product_price = models.IntegerField(verbose_name='product_price')
+    product_is_published = models.BooleanField(default=False, verbose_name='product_is_published')
     product_datetime_create = models.DateTimeField(**NULLABLE, verbose_name='product_datetime_create')
     product_datetime_change = models.DateTimeField(**NULLABLE, verbose_name='product_datetime_change')
 

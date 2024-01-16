@@ -12,10 +12,20 @@
                 <p class="card-text">{{object.product_description}}</p>
                 <p class="card-text"><small class="text-body-secondary">{{object.product_category}}</small></p>
                 <p class="card-text"><small class="text-body-secondary">{{object.product_price}} $</small></p>
+                {% if object.product_is_published %}
+                <p class="card-text"><small class="text-body-secondary">Published </small></p>
+                {% else %}
+                <p class="card-text"><small class="text-body-secondary">Not published </small></p>
+                {% endif %}
                 <a href="{% url 'catalog:product_view' object.pk|add:'1' %}" class="btn btn-secondary" tabindex="-1"
                    role="button" aria-disabled="true">Next</a>
+                {% if perms.catalog.change_product %}
+                <a href="{% url 'catalog:product_moder_update' pk=product.pk %}" class="btn btn-secondary" tabindex="-1"
+                   role="button" aria-disabled="true">Update info</a>
+                {% else %}
                 <a href="{% url 'catalog:product_update' pk=product.pk %}" class="btn btn-secondary" tabindex="-1"
                    role="button" aria-disabled="true">Update info</a>
+                {% endif %}
             </div>
         </div>
     </div>
