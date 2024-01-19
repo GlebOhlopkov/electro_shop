@@ -1,17 +1,36 @@
 # from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.core.cache import cache
 from django.forms import inlineformset_factory
 from django.http import Http404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, UpdateView, CreateView
 
 from catalog.forms import ProductForm, VersionForm, ProductModerForm, ProductCreateForm
-from catalog.models import Product, Contacts, Version
+from catalog.models import Product, Contacts, Version, Category
+from catalog.services import get_all_categories
+from config.settings import CACHE_ENABLED
 
 
 class ProductListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Product
     permission_required = 'catalog.view_product'
+
+
+class CategoryListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
+    model = Category
+    permission_required = 'catalog.view_product'
+
+    def get_queryset(self):
+        if CACHE_ENABLED:
+            key = 'queryset'
+            queryset = cache.get(key)
+            if queryset is None:
+                queryset = get_all_categories()
+                cache.set(key, queryset)
+        else:
+            queryset = get_all_categories()
+        return queryset
 
 
 class ProductDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
